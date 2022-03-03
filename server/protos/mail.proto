@@ -1,0 +1,50 @@
+package mail;
+
+message AttachInfo {
+	optional int64 goodsId			= 1;
+	optional int32 amount			= 2;
+	optional int32 gunId			= 3;
+	optional int32 time 			= 4;
+}
+
+message MailInfo {
+	required int64 mailId 		= 1;	// 邮件ID  mailId
+	required int32 sendTime 	= 2;	// 发送时间 sendTime
+	required int32 mailType 	= 3;	// 类型：1-附件, 2-无附件  mailType
+	required string title 		= 4;	// 标题   title
+	required string content		= 5;	// 内容 content
+	required int32 status 		= 6;	// 阅读状态：1-未读, 2-已读  status
+	required int32 endTime 		= 7;	// 过期时间    endTime
+	required int32 pageType  	= 8; 	// 标签类型: 1-系统邮件, 2-奖品邮件 pageType
+	repeated AttachInfo attach	= 9;	// 附件物品
+}
+
+message MailStatusInfo {
+	required int64 mailId 		= 1;
+	required int32 sendTime 	= 2;
+	required int32 mailType 	= 3;   // 类型：1-附件, 2-无附件
+	required string title 		= 4;	
+	required int32 status 		= 5;	// 阅读状态：1-未读, 2-已读
+	required int32 endTime 		= 6;	// 过期时间
+	required int32 pageType  	= 7; 	// 标签类型: 1-系统邮件, 2-奖品邮件 pageType
+}
+
+message GetAllMailsStateResponse {
+	repeated MailStatusInfo system = 1;  // 系统邮件
+	repeated MailStatusInfo portal = 2;  // 奖品邮件
+}
+
+message RecvMail {
+	required MailInfo mail 	= 1;
+}
+
+message ReadMailResponse {
+	required int64 mailId 		= 1;
+	required string content 	= 2;
+	repeated AttachInfo attach	= 3;	// 附件物品
+}
+
+message RecvAllAttachResponse {
+	repeated int64 mailIds 	= 1;	// 成功领取的邮件ID列表
+	repeated AttachInfo recvGoods = 2; 	//成功领取的资源列表
+}

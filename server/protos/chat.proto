@@ -1,0 +1,6 @@
+package chat;
+
+message MessageInfo{
+	required int32  msgId  		= 1;    //消息序号
+	optional int64	sender  	= 2;    //发送者roleId
+}

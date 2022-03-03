@@ -1,0 +1,61 @@
+package misc;
+
+message miscInfo{
+	required int64 itemId   = 1;
+	required int32 goodsId 	= 2;
+}
+
+message miscCode{
+	required string code   = 1;
+	required int32  pid    = 2; //平台Id
+}
+
+message miscGoods{
+	repeated miscGood miscGoods = 1; 
+}
+
+message miscGood{
+	optional int32	goodsId  = 1;  //物品Id
+	optional int32  amount 	 = 2;  //物品数量
+	optional int32	gunId  	 = 3;  //炮台ID
+	optional int32  time 	 = 4;  //炮台时效
+}
+
+
+message AwardInfo {
+	optional int32 goodsId 		= 1;	// 物品 ID
+	optional int32 amount 		= 2;	// 数量
+	optional int32 currencyId 	= 3;	// 货币 ID
+	optional string desc 		= 4;	// 物品描述（空时读取静态表）
+}
+
+message MiscOnlineInfo {
+	message DayAward {
+		required int32 day 				= 1; 	// 第几天
+		required int32 status 			= 2;	// 状态 1：已经领取；2:可领取；3：倒计时；4：不可领取
+		optional int32 timestamp 		= 3;	// 可领取的时间戳
+		required AwardInfo award_info 	= 4;	// 奖励内容
+	}
+	required int32 type   					= 1;	// 任务类型
+	required string name   					= 2;	// 名字
+	required int32 online_time   			= 3;	// 在线时长
+	repeated DayAward award_list 			= 4;	// 奖励列表
+	required string help					= 5;	// 帮助
+	required int32 startAt					= 6;	// 活动开始时间（时间戳）
+}
+
+message MiscOnlineList {
+	repeated MiscOnlineInfo infoList 	= 1;		// 兑换码在线任务列表
+}
+
+message AwardRequest {
+	required int32 type   					= 1;	// 任务类型
+	required int32 day   					= 2;	// 第几天
+}
+
+message MiscOnlineAward {
+	required AwardInfo awardInfo	= 1;		// 奖励信息 
+	optional MiscOnlineInfo info 	= 2;		// 兑换码在线任务（保留）
+}
+
+

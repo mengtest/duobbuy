@@ -1,0 +1,23 @@
+package fund;
+
+message JoinInfo{
+	required int32 itemId 	= 1; 	// 夺宝商品 ID
+	required int32 joinNum 	= 2; 	// 参与数量
+	required int32 round 	= 3;	// 参与期数
+}
+
+message RecordInfo{
+	required int32 prizeId 		= 1;	// 商品 ID
+	required int32 round 		= 2;	// 期数
+	required string goodsName  	= 3;    // 物品名字
+}
+
+message RecordInfoList{
+	repeated RecordInfo recordInfoList 			= 1;		// 夺宝记录	    类型：1
+	repeated RecordInfo luckyRecordInfoList 	= 2;		// 夺宝中奖记录  类型：2
+}
+
+message WinningInfo {
+	required int32 round 		= 1;	// 参与期数
+	required string goodsName  	= 2;    // 物品名字
+}

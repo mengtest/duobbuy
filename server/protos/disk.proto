@@ -1,0 +1,6 @@
+package disk;
+
+message LuckyInfo{
+	required int32  rollIndex  	= 1;    //中奖序号
+	required bool	critFlag  	= 2;    //是否暴击
+}

@@ -1,0 +1,28 @@
+package activity;
+
+message diskInfo{
+	required int32 	needCharge  = 1;	//再充值金额
+	required int32 	rollNum 	= 2;	//转盘次数
+	repeated int32  getIds		= 3;    //已经获得奖励列表
+}
+
+message award{
+	required int32	goodsId  = 1;  //物品Id
+	required int32  amount 	 = 2;  //物品数量
+}
+
+message rechargeInfo{
+	required int32 	price 	 = 1;	//充值金额
+	repeated int32  status 	 = 2;	//按钮状态 1 充值 2 领取 3 已领取
+}
+
+message activityInfo{
+	required int32 activityId = 1;	//活动id
+	required bool status 	  = 2;	// 1 开启 2 关闭
+	required int32 sTime 	  = 3;	// 开启时间
+	required int32 eTime 	  = 4;	// 结束时间
+}
+
+message timeInfo{
+	repeated activityInfo list = 1;	// 活动状态列表
+}

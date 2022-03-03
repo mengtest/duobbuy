@@ -1,0 +1,9 @@
+package treasure_bowl;
+
+message Info {
+	required int32 chargeMoney = 1;
+	required int32 leftGold = 2;
+	required int32 leftTimes = 3;
+	required int32 needCharge = 4;
+	required int32 joinTimes = 5;
+}

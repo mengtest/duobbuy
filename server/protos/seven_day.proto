@@ -1,0 +1,12 @@
+package seven_day;
+
+message Info{
+	message day{
+		required int32 index = 1; 	//第几天
+		required int32 loginAward = 2;	//登录奖励状态  1 领取 2 已领取
+		required int32 chargeAward = 3;	//充值奖励状态  1 未达到 2 待领取 3 已领取 4 过期
+		required int32 chargeMoney = 4; //充值金额
+	}
+	required int32 leftSec = 1;	//充值剩余时间
+	repeated day list = 2;	//每天状态
+}

@@ -1,0 +1,7 @@
+package oa;
+
+//在线奖励信息
+message OnlineAwardInfo {
+	required int32 onlineTimeLen = 1;
+	repeated int32 gotTypes = 2;
+}

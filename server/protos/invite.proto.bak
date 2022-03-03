@@ -1,0 +1,14 @@
+package invite;
+
+message Info{
+	required int32  playStatus 	  	= 1;	//畅玩奖励状态  (2:可输入邀请id领取 3:已领取)
+	required int32  chargeAmount 		= 2;	//可领取的充值奖励数量 0为不可领取 
+	repeated inviteStatus  inviteStatusList   = 3;	//
+	required int32	totalAmount		= 4;  //累计充值奖励数量
+	required int32	inviteNum		= 5;  //邀请人数
+}
+
+message inviteStatus{
+	required int32 	id 	  	= 1;	//邀请奖励id
+	required int32 	status	 	= 2;	//状态(1:不可领取 2:可领取 3:已领取)
+}

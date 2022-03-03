@@ -1,0 +1,77 @@
+package role;
+
+message RoleInfo{
+	message endGun{
+		required int32 gunId = 1;  // 炮塔id
+		required int32 endSec = 2; // 结束时间
+	}
+
+	required string nickname  	= 1;    //昵称
+	required int32  avatar 		= 2;	//头像
+	required int32 	gold		= 3;	//金币
+	required int32  gun 		= 4;	//炮塔(当前使用)
+	required int32 	gunLevel 	= 5;	//炮塔倍率
+	repeated int32 	guns 		= 6;	//拥有炮塔
+	required int32 	treasure 	= 7;	//夺宝卡数量
+	optional string mobileNum 	= 8;	//绑定手机号
+	required bool 	isEnergy 	= 9;	//是否有能量槽
+	optional int32 	goldGunGoldCost = 10;	//黄金能量值
+	required int32 	goldEnergyStep 	= 11;	//获取夺宝卡的能量值
+	optional int32  goldGunTreauser  = 12; //未领取的能量值兑换夺宝卡数量
+	required int32 	chargeNum 	= 13;		//充值金额
+	repeated endGun endGuns 	= 14;		//时限炮塔信息
+	optional int32 	frozenGoldCost 	= 15;	//冰冻炮能量
+	required int32 	frozenGoldMax 	= 16;	//冰冻炮能量上限
+	optional int32 	critGoldCost 	= 17;	//暴击炮能量
+	required int32 	critGoldMax 	= 18;	//暴击炮能量上限
+	optional int32 	sliceGoldCost 	= 19;	//切鱼炮能量
+	required int32 	sliceGoldMax 	= 20;	//切鱼炮能量上限
+	required int64  exp 			= 21;	// 经验
+	required int32  level			= 22;	// 等级
+}
+
+message UpdatedInfos{
+	repeated UpdatedInfo infos      = 1;           
+}
+
+//属性数值变更，变更值为当前最新值
+message UpdatedInfo{
+	required string attrName 		= 1;	//变更属性字段名
+	required double attrValue 		= 2;	//变更属性最终值
+}
+
+//玩家设置
+message SetInfo{
+	optional string nickname 	= 1; 	//昵称
+	optional int32 avatar 		= 2;	//头像
+}
+
+//免费金币
+message FreeGoldInfo{
+	required int32 goldNum 	=	1;	//获得金币数据
+	required int32 leftTime = 	2;	//剩余时间
+}
+
+message String{
+	required string data = 1;	//数据
+}
+
+message Bool{
+	required bool data = 1; 	//数据
+}
+
+message ChargeInfo{
+	required int32 shopIndex = 1; // 充值序号
+	required bool isFirst = 2;	// 是否首充
+	optional int32 	goldAmount 	= 3; 	//获得金币
+}
+
+message endGunUpdateInfo{
+	required int32 gunId = 1;  // 炮塔id
+	required int32 endSec = 2; // 结束时间
+}
+
+message RoleExpInfo {
+	optional int64 exp 			= 1;	// 经验
+	optional int32 level		= 2;	// 等级
+}

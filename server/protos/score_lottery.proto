@@ -1,0 +1,18 @@
+package score_lottery;
+
+message awardInfo{
+	required int32 	id 	  		  = 1;	//id
+	required int32 	status 	  	  = 2;	//领取状态(1:不可领取 2:可领取 3:已领取)
+}
+
+message Info{
+	required int32 	leftScore 	  = 1;	//剩余积分
+	required int32 	lotteryTimes 	  = 2;	//已抽奖次数
+	repeated awardInfo  awardInfos	  = 3;  //累计信息
+}
+
+
+message Lottery {
+	repeated int32  awardIds	  = 1;  //抽中的奖励id
+}
+

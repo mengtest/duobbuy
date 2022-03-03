@@ -1,0 +1,91 @@
+--[[
+	序号, 组, 权重, 类型, 图标, 
+	id, group, weight, type, icon, 
+]]
+local coupon_config = {
+	[1] = {
+			id = 1,
+			group = 1,
+			weight = 4000,
+			type = 1,
+			icon = [[icon_1]],
+		},
+	[2] = {
+			id = 2,
+			group = 1,
+			weight = 800,
+			type = 1,
+			icon = [[icon_1]],
+		},
+	[3] = {
+			id = 3,
+			group = 1,
+			weight = 400,
+			type = 2,
+			icon = [[icon_2]],
+		},
+	[4] = {
+			id = 4,
+			group = 1,
+			weight = 300,
+			type = 1,
+			icon = [[icon_1]],
+		},
+	[5] = {
+			id = 5,
+			group = 1,
+			weight = 200,
+			type = 2,
+			icon = [[icon_2]],
+		},
+	[6] = {
+			id = 6,
+			group = 1,
+			weight = 100,
+			type = 3,
+			icon = [[icon_3]],
+		},
+	[7] = {
+			id = 7,
+			group = 2,
+			weight = 4000,
+			type = 2,
+			icon = [[icon_2]],
+		},
+	[8] = {
+			id = 8,
+			group = 2,
+			weight = 800,
+			type = 4,
+			icon = [[icon_4]],
+		},
+	[9] = {
+			id = 9,
+			group = 2,
+			weight = 400,
+			type = 3,
+			icon = [[icon_3]],
+		},
+	[10] = {
+			id = 10,
+			group = 2,
+			weight = 300,
+			type = 4,
+			icon = [[icon_4]],
+		},
+	[11] = {
+			id = 11,
+			group = 2,
+			weight = 200,
+			type = 3,
+			icon = [[icon_3]],
+		},
+	[12] = {
+			id = 12,
+			group = 3,
+			weight = 100,
+			type = 4,
+			icon = [[icon_4]],
+		},
+}
+return coupon_config

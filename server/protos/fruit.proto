@@ -1,0 +1,5 @@
+package fruit;
+
+message LuckyInfo{
+	repeated int32 nums = 1; //转中序号
+}

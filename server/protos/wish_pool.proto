@@ -1,0 +1,25 @@
+package wish_pool;
+
+message record{
+	required int32 id = 1;	//奖励id
+	required int32 num = 2;	//剩余数量
+}
+
+message info{
+	required int32	leftAwardNum  = 1; //奖品总剩余数量
+	repeated record displayInfo   = 2; //展示奖品信息
+	required int32  maxAwardNum   = 3; //最大奖品数量
+}
+
+message goodsRecord{
+	message record{
+		required string goodsName = 1;	//奖励物品
+		required int32 	time 	  = 2;	//中奖时间
+		required int32  status 	  = 3;	//状态 1 处理中 2 完成
+	}
+	repeated record records 	  = 1;	//实物中奖记录
+}
+
+message awardInfo{
+	repeated int32 data = 1;		//奖励列表
+} 

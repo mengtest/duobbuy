@@ -1,0 +1,14 @@
+package daily_charge;
+
+message continueInfo{
+	required int32 	days 	  	= 1;	//天数类型
+	required int32 	status 	  	= 2;	//状态(1:不可领取 2:可领取 3:已领取)
+}
+
+message Info{
+	required int32  chargeDays 	  	= 1;	//充值天数
+	required int32  dayAwardStatus 	  = 2;	//每日充值状态(1:不可领取 2:可领取 3:已领取)
+	repeated continueInfo  continueInfos   = 3;	//持续充值信息
+}
+
+

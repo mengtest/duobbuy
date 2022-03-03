@@ -1,0 +1,9 @@
+package sign_disk;
+
+message info {
+	required int32 signDaysNum	= 1;	//月累计签到天数
+	repeated int32 totalInfos = 2;  //月累计奖励状态,1为不可领取,2为可领取,3为已领取
+	required bool  isSigned	 = 3; //今天是否有签到
+}
+
+

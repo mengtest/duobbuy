@@ -1,0 +1,25 @@
+package boss;
+
+message MyKillInfo {
+	message Item {
+		required int32 prizeId = 1;
+		required int32 time = 2;
+		required int32 state = 3;
+	}
+	repeated Item items = 1;
+}
+
+
+message KillInfo {
+	message Item {
+		required int32 prizeId = 1;
+		required int32 time = 2;
+		required string nickname = 3;
+	}
+	repeated Item items = 1;
+}
+
+message KillBoss {
+	required int32 roleId = 1;
+	required int32 bossId = 2;
+}

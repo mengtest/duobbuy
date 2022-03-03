@@ -1,0 +1,7 @@
+package box;
+
+message Info {
+	repeated int32 data = 1; //开奖次数列表
+	required int32 maxChargeNum = 2; 	//最大充值数量
+	required int32 curChargeNum = 3;	//当前充值金额
+}

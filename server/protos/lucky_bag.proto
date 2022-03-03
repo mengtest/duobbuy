@@ -1,0 +1,26 @@
+package lucky_bag;
+
+message record{
+	required string nickname = 1;	//玩家名
+	required string goodsName = 2;	//奖励物品
+	required int32 type = 3;	//类型 1：单抽；2：十连抽
+}
+
+message info{
+	required int32	bagNum  = 1;  	//福袋数量
+	repeated record sysRecords  =2;	//全服幸运记录
+	repeated record selfRecords = 3; //个人中奖记录
+}
+
+message goodsRecord{
+	message record{
+		required string goodsName = 1;	//奖励物品
+		required int32 	time 	  = 2;	//中奖时间
+		required int32  status 	  = 3;	//状态 1 处理中 2 完成
+	}
+	repeated record records 	  = 1;	//实物中奖记录
+}
+
+message awardInfo{
+	repeated int32 data = 1;		//奖励列表
+}

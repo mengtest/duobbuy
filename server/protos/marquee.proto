@@ -1,0 +1,19 @@
+package marquee;
+
+message MarqueeInfos{
+	repeated MarqueeInfo marquees = 1;  //缓存信息
+}
+
+message MarqueeInfo{
+	required int32 id          = 1;  //消息类型，10000以上为运营消息,10000以下是系统常驻消息跟游戏内消息
+	optional int32 priority    = 2;  //优先级，1为紧急，2为普通
+	optional int32 timeInterval= 3;  //时间间隔
+	optional int32 times       = 4;  //次数
+	optional string content    = 6;  //消息内容
+	optional int32 leftTime    = 7;  //剩余播放时间
+ }
+
+message MarqueeKeyWord{
+    required int32 id      = 1;    //消息Id
+	repeated string words    = 2;  //显示字段
+}

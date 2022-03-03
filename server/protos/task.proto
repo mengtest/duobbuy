@@ -1,0 +1,18 @@
+package task;
+
+message TaskList {
+	message Task {
+		required int32 taskId = 1;
+		required int32 state = 2;			//1、未完成，2、已完成，3、已领取
+		required int32 finishedCount = 3;
+	}
+
+	repeated Task tasks = 1;
+	required int32 totalState = 2;	//累积进度奖励状态 1、未完成，2、已完成，3、已领取
+}
+
+message TaskUpdateInfo {
+	required int32 taskId = 1;
+	required int32 finishedCount = 2;
+	required int32 state = 3; // 1、未完成，2、已完成，3、已领取
+}

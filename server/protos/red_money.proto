@@ -1,0 +1,17 @@
+package red_money;
+
+message award{
+	required int32	goodsId  = 1;  //物品Id
+	required int32  amount 	 = 2;  //物品数量
+}
+
+message rank{
+	required int32 	goldNum  = 1;	//金币数量
+	required string nickname = 2;	//玩家昵称
+	required string getTime  = 3;	//中奖时间
+}
+
+message bagInfo{
+	required award 	awardInfo = 1; //获得物品
+	repeated rank 	rankInfo = 2; //排名信息
+}

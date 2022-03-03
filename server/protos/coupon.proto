@@ -1,0 +1,20 @@
+package coupon;
+
+message Info {
+	message Card {
+		required int32 pos = 1;		//打开的位置
+		required int32 type = 2;	//打开的图案类型
+	}
+
+	message AwardState {
+		required int32 index = 1;
+		required int32 state = 2;	//1、可领取，2、已领取
+	}
+
+	required int32 chargeMoney = 1;
+	required int32 leftTimes = 2;
+	required int32 needCharge = 3;
+	repeated Card cards = 4;
+	repeated AwardState awardStates = 5;
+}
+

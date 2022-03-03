@@ -1,0 +1,30 @@
+package rank;
+
+message RankItem{
+	required int32 pos = 1; 	//排名
+	required string nickname = 2; 	//玩家昵称
+	required int32 score = 3;		//积分
+	required string awardName = 4;	//奖励名称
+}
+
+message ArenaDayInfo{
+	repeated RankItem list = 1; 	//排名列表
+	required int32 lastPos = 2;		//昨天排名 0 代表未上榜
+}
+
+message ArenaWeekInfo{
+	repeated RankItem list = 1; 	//排名列表
+	required int32 lastPos = 2;		//昨天排名 0 代表未上榜
+}
+
+message Award{
+	required string time = 1; // 日期
+	required int32 rankType = 2; // 奖励类型
+	required string awardName = 3; // 奖励名称
+	required int32 status = 4;	//类型  1 处理中 2 完成
+	required int32 pos = 5;		//排名
+}
+
+message AwardsInfo{
+	repeated Award list  = 1; 	//奖励列表
+}

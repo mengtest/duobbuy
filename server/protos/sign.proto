@@ -1,0 +1,13 @@
+package sign;
+
+
+message Info {
+	message day{
+		required int32 day 			= 1; 	// 第几天
+		required int32 status 		= 2;	// 状态 1：已经领取；2:可领取；3：倒计时；4：不可领取
+		optional int32 timestamp 	= 3;	// 可领取的时间戳
+	}
+	repeated day list 				= 1;	// 每天状态
+	optional string miscCode  		= 2;    // 兑换码
+	optional int32 codeType  		= 3;    // 兑换码类型（2：Q币；3：话费）
+}

@@ -1,0 +1,11 @@
+package egg;
+
+message Info{
+	required int32 	leftTimes 	  = 1;	//剩余次数
+	required int32 	chargeNum 	  = 2;	//充值金额
+	required int32 	cycle 	  	  = 3;	//轮次
+	repeated int32  eggInfos	  = 4;  //已抽取的
+	repeated int32  positionIds   = 5;  //位置id
+}
+
+

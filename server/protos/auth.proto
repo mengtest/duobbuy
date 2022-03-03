@@ -1,0 +1,38 @@
+package auth;
+
+message LoginRequest {
+	required string uid 		= 1;
+	required int32 signTime 	= 2;
+	required string token 		= 3;
+	optional int32 pid 			= 4;	//渠道id
+	optional int32 channelId 	= 5;	//逻辑id
+	optional string imei 		= 6;	//设备号 ID
+}
+
+message LoginResponse {
+	message WaittingInfo {
+		required int32 waittings	 = 1;		//正在等待的总人数
+		required int32 selfPos 		 = 2;		//自己当前等待位置
+		required int32 remainTime 	 = 3;		//预计剩余时间
+	}
+
+	optional int64 roleId = 1;
+	optional WaittingInfo waittingInfo = 2;
+}
+
+message CreateRoleInfo{
+	required string nickname  	= 1;    //昵称
+	required int32 avatar 		= 2;	//头像
+	optional int32 pid 			= 3;	//渠道id
+	optional int32 channelId 	= 4;	//逻辑id
+	optional string imei 		= 5;	//imei
+}
+
+message OfflineReason {
+	required int32  type 		= 1;
+	required string messages 	= 2;
+}
+
+message ServerTime {
+	required double time 		= 1;	//服务器时间
+}

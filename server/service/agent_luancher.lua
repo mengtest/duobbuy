@@ -1,0 +1,11 @@
+local skynet  	= require("skynet")
+local clientHelper = require("common.client_helper")
+clientHelper.registerProtos()
+
+skynet.start(function()
+	skynet.newservice("debug_console")
+	skynet.newservice("agent_mgr")
+	skynet.newservice("activity")
+	skynet.newservice("misc")
+	skynet.exit()
+end)

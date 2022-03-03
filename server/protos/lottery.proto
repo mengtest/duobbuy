@@ -1,0 +1,37 @@
+package lottery;
+
+message RankInfo {
+	message Item {
+		required int64 roleId = 1;
+		required string nickname = 2;
+		required int32 joinTimes = 3;
+		required int32 award = 4;
+	}
+	
+	repeated Item items = 1;		//排名列表
+}
+
+message Record {
+	required string nickname = 1;	//玩家名
+	required string goodsName = 2;	//奖励物品
+}
+
+message Info {
+	repeated Record sysRecords  = 1;	//全服幸运记录
+	repeated Record selfRecords = 2; 	//个人中奖记录
+	required int64 totalAward = 3;		//奖池大小
+}
+
+message GoodsRecord {
+	message Record {
+		required string goodsName = 1;	//奖励物品
+		required int32 	time 	  = 2;	//中奖时间
+		required int32  status 	  = 3;	//状态 1 处理中 2 完成
+	}
+	repeated Record records 	  = 1;	//实物中奖记录
+}
+
+message AwardInfo {
+	repeated int32 data = 1;		//奖励列表
+	required int64 totalAward = 2;
+}

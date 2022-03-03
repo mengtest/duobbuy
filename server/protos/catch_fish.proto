@@ -1,0 +1,293 @@
+package catch_fish;
+
+//鱼信息
+message Fish {
+	required int32 objectId = 1;	//对象ID
+	required int32 type = 2;		//鱼种
+	required int32 pathId = 3;		//路径信息编号
+	optional int32 bornX = 4;		//出生位置X
+	optional int32 bornY = 5;		//出生位置Y
+	optional float rotation = 6;	//路径相对出生点旋转角度 
+	required int32 bornTime = 7;	//出生时间点（相对于房间创建时间点，单位为10毫秒）
+	repeated int32 children = 8;	//如果type为组合、三元四喜等特殊鱼，则此字段包含的个体鱼类型列表
+	optional int32 goldDrop = 9;	//金币掉落赔率
+}
+
+message UpFishInfo {
+	required int32 objectId		= 1;	// 对象ID
+	optional int32 goodDrop 	= 2;	// 金币掉落赔率
+}
+
+//瞄准信息
+message AimInfo {
+	optional int64 roleId = 1;			//角色ID
+	required int32 objectId = 2;		//瞄准对象
+}
+
+//炮弹信息
+message Bullet {
+	required int32 type = 1;		//类型
+	required int32 level = 2;		//等级
+	required float fireAngle = 3;	//当前角度（弧度值）
+	required int32 fireTime = 4;	//当前时间（相对于房间创建时间点，单位为10毫秒）
+}
+
+//玩家信息
+message Player {
+	required int64 roleId = 1;			//角色ID
+	required int32 pos = 2;				//在房间里的位置(1、2、3、4)
+	required string nickname = 3;		//角色昵称
+	required string avatar = 4;			//角色头像
+	required int32 gold = 5;			//珍珠数量
+	required int32 gunType = 6;			//炮塔类型
+	required int32 gunLevel = 7;		//炮塔等级
+	optional int32 aimObjectId = 8; 	//当前瞄准的信息
+	repeated Bullet bullets = 9;		//炮弹信息
+	required int32 level = 10;			//玩家等级
+}
+
+//房间信息
+message RoomInfo {
+	required int32 roomId = 1; 				//房间编号
+	required int32 createTime = 2;			//房间创建时间
+	required int32 curTime = 3;				//房间当前时间
+	repeated Player players = 4;			//玩家列表
+	repeated Fish fishes = 5;				//鱼信息列表
+	required int32 totalPlayerCount = 6;	//夺宝场人数
+	optional int32 minGunLevel = 7;
+	optional int32 freezeTime = 8;			//冰冻时间点
+}
+
+//炮塔更新信息
+message UpdateGunInfo {
+	required int64 roleId = 1;			//角色ID
+	required int32 gunType = 2;			//炮塔类型
+	required int32 gunLevel = 3;		//炮塔等级
+}
+
+//开炮信息
+message FireInfo {	
+	optional int64 roleId = 1;			//角色ID
+	required float fireAngle = 2; 		//开炮角度（弧度值)
+	optional int32 fireTime = 3;		//开炮时间			 
+	optional int32 bulletId = 4;		//炮弹ID			 
+}
+
+//鱼群出生信息
+message FishBornInfo {
+	repeated Fish fishes = 1;
+}
+
+//切鱼信息
+message SliceInfo {	
+	message SliceFish {
+		required int32 fishId = 1;			//鱼的ID
+		required int32 fireTime = 2;		//开炮时间
+	}
+	optional int64 roleId = 1;				//角色ID（请求时，不发送roleId）
+	required SliceFish sliceFish = 2;		//切中的鱼
+	repeated SliceFish extraFishes = 3;		//额外切中的鱼（广播展示用，有最大数量限制）
+	optional int32 cost = 4;				//消耗（请求时，不发送cost）
+}
+
+//命中信息
+message HitInfo {
+	message Hit {
+		required int32 bulletId = 1;
+		required int32 fishId = 2;
+		repeated int32 extraFishes = 3; //闪电包额外击中的鱼
+		optional int32 bulletType = 4;
+	}
+
+	optional int64 roleId = 1;
+	repeated Hit hits = 2;
+}
+
+//鱼死亡信息
+message FishDieInfo {
+	repeated int32 objectIds = 1;
+}
+
+//掉落信息
+message DropInfo {
+	message Drop {
+		required int32 fishId = 1;			//掉落关联鱼的对象ID
+		optional int32 gold = 2;			//掉落珍珠数量
+		required int32 crit = 3;			//暴击倍数
+	}
+
+	required int64 roleId = 1;			//获得者角色ID
+	repeated Drop drops = 2;
+}
+
+message DropTreasure {
+	required int64 roleId = 1;			//获得者角色ID
+	required int32 fishId = 2;			//掉落关联鱼的对象ID
+	required int32 treasure = 3;		//掉落夺宝卡数量
+}
+
+message FreezeInfo {
+	required int64 roleId = 1;			//角色ID
+	required int32 freezeTime = 2;		//冰冻时间点
+}
+
+//创建VIP房间信息
+message CreateVipRoomInfo {
+	required string password = 1;			//进入密码
+	optional int32 minGunLevel = 2;			//最低炮倍
+}
+
+
+message VipRoomPlayer {
+	required int64 roleId = 1;
+	required int32 avatar = 2;
+	required int32 pos = 3;				//在房间里的位置(1、2、3、4)
+}
+
+message VipRoomInfo {
+	required int32 roomId = 1;			//房间编号
+	repeated VipRoomPlayer players = 2;	//玩家列表
+	required bool hasPassword = 3;		//是否需要密码
+	required int32 minGunLevel = 4;		//最低炮倍
+}
+
+//VIP房间列表
+message VipRoomList {
+	repeated VipRoomInfo rooms = 1;
+}
+
+//进入VIP房间请求信息
+message EnterVipRoomRequest {
+	required int32 roomId = 1;			//房间编号
+	required string password = 2;		//VIP密码
+}
+
+message UpdatePlayerGold {
+	required int64 roleId = 1;
+	required int32 gold = 2;
+}
+
+message UpdatePlayerInfo {
+	required int64 roleId 		= 1;
+	optional int32 gold 		= 2;
+	optional int64 exp 			= 3;	// 经验
+	optional int32 level		= 4;	// 等级
+}
+
+//////////////////////////////////////////////////////////
+message JoinArenaInfo {
+	message JoinPlayer {
+			required int64 roleId = 1;
+			required int32 avatar = 2;
+			required int32 pos = 3;
+		}
+
+	required int32 roomId = 1;
+	required int32 type = 2;
+	required int32 level = 3;
+	optional string password = 4;
+	repeated JoinPlayer players = 5;
+	required bool isBegan = 6;
+}
+
+message ArenaList {
+	message JoinRoomInfo {
+			message JoinPlayer {
+				required int64 roleId = 1;
+				required int32 avatar = 2;
+				required int32 pos = 3;
+			}
+
+		required int32 roomId = 1;
+		required int32 type = 2;
+		required int32 level = 3;
+		optional string password = 4;
+		repeated JoinPlayer players = 5;
+		required bool isBegan = 6;
+	}
+
+	required int32 myRoomId = 1;
+	repeated JoinRoomInfo rooms = 2;
+}
+
+message CreateArenaRequest {
+	required int32 type = 1;		//类型
+	required int32 level = 2;		//等级
+	optional string password = 3;	//密码
+}
+
+message JoinRequest {
+	required int32 roomId = 1;		//房间ID
+	required int32 type = 2;		//类型
+	required int32 level = 3;		//等级
+	optional string password = 4;	//密码
+}
+
+message ArenaResult {
+	message ArenaResultItem {
+		required int64 roleId = 1;
+		required int32 rank = 2;		//排名
+		required string nickname = 3;	//昵称
+		required int32 score = 4;		//积分
+		required int32 goodsId = 5;
+		required int32 award = 6;		//奖励
+		required int32 point = 7; 		//排行榜点数
+	}
+
+	required int32 roomId = 1;
+	repeated ArenaResultItem items = 2;
+}
+
+message ArenaResultList {
+	message ArenaResultInfo {
+		required int32 rank = 1;		//排名
+		required int32 score = 2;		//积分
+		required int32 goodsId = 3;
+		required int32 award = 4;		//奖励
+		required int32 time = 5;
+		required int32 type = 6;
+		required int32 level = 7;
+	}
+
+	repeated ArenaResultInfo items = 1;
+}
+
+message ArenaRoomInfo {
+	message Player {
+		required int64 roleId = 1;			//角色ID
+		required int32 pos = 2;				//在房间里的位置(1、2、3、4)
+		required string nickname = 3;		//角色昵称
+		required string avatar = 4;			//角色头像
+		required int32 gold = 5;			//子弹数量
+		required int32 gunType = 6;			//炮塔类型
+		required int32 gunLevel = 7;		//炮塔等级
+		optional int32 aimObjectId = 8; 	//当前瞄准的信息
+		repeated Bullet bullets = 9;		//炮弹信息
+		required int32 score = 10;			//当前积分
+		required int32 state = 11;			//状态(1、正常，2、掉线，3、放弃)
+		required int32 level = 12;			//状态(1、正常，2、掉线，3、放弃)
+	}
+
+	required int32 roomId = 1; 				//房间编号
+	required int32 createTime = 2;			//房间创建时间
+	required int32 curTime = 3;				//房间当前时间
+	repeated Player players = 4;			//玩家列表
+	repeated Fish fishes = 5;				//鱼信息列表
+	optional int32 minGunLevel = 6;
+	required int32 totalPlayerCount = 7;	//夺宝场人数
+
+	required int32 type = 8;		//竞技场类型
+	required int32 level = 9;		//竞技场等级
+	required int32 endTime = 10;	//结束时间
+}
+
+message PlayerState {
+	required int64 roleId = 1;
+	required int32 state = 2;
+}
+
+message DoingArenaInfo {
+	required int32 roomId = 1;
+	required int32 type = 2;
+	required int32 level = 3;
+}

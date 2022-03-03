@@ -1,0 +1,15 @@
+package relic;
+
+message relicInfo{
+	required int32 	id 	  	  = 1;	//中奖id
+	required int32 	level 	  = 2;	//所在层
+}
+
+message goodsRecord{
+	message record{
+		required string goodsName = 1;	//奖励物品
+		required int32 	time 	  = 2;	//中奖时间
+		required int32  status 	  = 3;	//状态 1 处理中 2 完成
+	}
+	repeated record records 	  = 1;	//实物中奖记录
+}

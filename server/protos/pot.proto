@@ -1,0 +1,55 @@
+package pot;
+
+message Info{
+	message histroy{
+		required string round = 1;	//期数
+		optional string code = 2;	//开奖号码
+	}
+
+	required string curRound = 1; 	//期数
+	required int32 goldNum = 2; //奖池金币
+	required bool isOpen = 3;	//是否开奖
+	optional string luckyNum = 4;	//开奖号码
+	optional int32 leftSec = 5;	//倒计时
+	repeated histroy list = 6;	//个人历史
+	repeated histroy sysList = 7; //系统历史
+}
+
+message Record{
+	message info{	
+		required string code = 1; //号码
+		required int32 num = 2;	//次数
+		optional int32 goldNum = 3;	//奖励
+		optional int32 pos = 4;	//几等奖
+	}
+	required string round = 1;	//期数
+	optional string luckyNum = 2; //幸运号码
+	repeated info list = 3;	//
+}
+
+message Round{
+	message info{	
+		required int32 pos = 1; //排名
+		required int32 num = 2;	//次数
+		optional int32 goldNum = 3;	//奖励
+	}
+	required string round = 1;	//期数
+	optional string luckyNum = 2; //幸运号码
+	repeated info list = 3;	//
+}
+
+message Bet{
+	required string code = 1;	//号码
+	required int32 num = 2;		//次数
+}
+
+message Award{
+	required int32 goldNum = 1; //当前奖池金币
+	required int32 leftSec = 2;	//倒计时
+	required string round = 3; //下一期
+}
+
+message Open{
+	required int32 luckyNum = 1; //中奖号码
+	required int32 leftSec = 2;	//倒计时
+}

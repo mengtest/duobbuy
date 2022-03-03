@@ -1,0 +1,23 @@
+package shop;
+
+message ShopInfo{
+	required int32 shopIndex  		= 1;    //商品序号
+	required bool  status 			= 2;	//商品状态
+}
+
+message ShopInfos{
+	repeated ShopInfo gold = 1; 	//金币商城信息
+	repeated ShopInfo gift = 2; 	//超值礼包信息
+	repeated ShopInfo bag = 3; 		//福袋信息
+}
+
+
+// 礼包相关
+message GiftInfo {
+	required int32 giftId  		= 1;    //礼包 ID
+	required int32 days  		= 2;    //礼包剩余天数
+}
+
+message GiftInfoList {
+	repeated GiftInfo giftInfoList 	= 1;		//礼包列表
+}

@@ -1,0 +1,7 @@
+package mobile;
+
+message Info{
+	optional string mobile  		= 1;  // 手机号
+	optional string codeNum  		= 2;  // 验证码
+	optional string password  		= 3;  // 密码
+}

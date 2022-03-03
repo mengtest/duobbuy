@@ -1,0 +1,14 @@
+package morrow_gift;
+
+message MorrowGiftInfo {
+	message awardInfo {
+		optional int32 	goodsId = 1;	// 物品 ID
+		optional int32 	amount = 2;		// 数量
+		optional int32 	gunId = 3;		// 炮台 ID
+		optional int32 	time = 4;		// 时间
+	}
+	required int32 receiveTime = 1;		// 下一次可领取时间戳
+	required int32 day = 2;				// 当前第几天
+	required int32 lastDay = 3;			// 最后一天
+	repeated awardInfo awardList = 4;	// 奖励信息
+}
