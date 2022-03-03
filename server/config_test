@@ -1,0 +1,30 @@
+root = "./"
+thread = 8
+harbor = 1
+logger = "./log/test.log"
+logminlevel = 10
+address = "127.0.0.1:6001"
+master = "127.0.0.1:6000"
+standalone = "0.0.0.0:6000"
+start = "test"
+bootstrap = "snlua bootstrap"
+lua_path = root .. "/lualib/?.lua;" .. root .. "/logic/?.lua;".. root .. "/service/?.lua"
+luaservice = root.."service/?.lua;"
+lualoader = "lualib/loader.lua"
+cpath = root.."cservice/?.so"
+pbpath = root.."pb/"
+--test
+loginHost = "112.74.44.168:8081"--"9120.77.149.:8081"
+loginUrl = "/api.php"
+password = "123456"
+serverId = 1
+loginInterval = 1
+svcCount = 1
+heartbeatInterval = 10
+
+serverHost = "192.168.1.220"
+serverPort = "5901"
+
+clientsPerSvc = 500
+clientsBegin = 0
+

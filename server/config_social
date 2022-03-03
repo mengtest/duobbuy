@@ -1,0 +1,27 @@
+---------------------------public-----------------------
+include("config_public")
+include("config_port")
+---------------------------------------------------------
+
+thread = 8
+harbor = social_harbor
+logger = "./log/social.log"
+address = "127.0.0.1:"..serverIndex.."00"..harbor
+master = "127.0.0.1:"..serverIndex.."000"
+start = "social"
+
+--debug
+debugPort = serverIndex.."05"..harbor
+
+--refreshTime
+refreshTime = 60
+
+--redMoney
+redMoneyTest = nil
+
+--mysql
+mysqlHost = mysql_host
+mysqlPort = mysql_port
+mysqlDatabase = mysql_database
+mysqlUser = mysql_user
+mysqlPassword = mysql_password

@@ -1,0 +1,31 @@
+root = "./"
+thread = 8
+harbor = 1
+logger = "./log/test.log"
+address = "127.0.0.1:6001"
+master = "127.0.0.1:6000"
+standalone = "0.0.0.0:6000"
+start = "robot"
+bootstrap = "snlua bootstrap"
+lua_path = root .. "/lualib/?.lua;" .. root .. "/logic/?.lua;".. root .. "/service/?.lua"
+luaservice = root.."service/?.lua;"
+lualoader = "lualib/loader.lua"
+cpath = root.."cservice/?.so"
+pbpath = root.."pb/"
+
+--test
+loginHost = "192.168.1.220:8082"
+loginUrl = "/api.php"
+accountPrefix = "three"
+accountStartIndex = 1
+password = "123456"
+serverId = 1
+loginInterval = 5
+logminlevel = 10
+svcCount = 1
+clientsPerSvc = 1
+heartbeatInterval = 3
+sampleDataPath = "./record/"
+sampleData = "robot1"
+
+

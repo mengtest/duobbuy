@@ -1,0 +1,26 @@
+---------------------------public-----------------------
+include("config_public")
+include("config_port")
+---------------------------------------------------------
+
+thread = 8
+harbor = catch_fish_harbor
+logger = "./log/catch_fish.log"
+address = "127.0.0.1:"..serverIndex.."00"..harbor
+master = "127.0.0.1:"..serverIndex.."000"
+start = "catch_fish_luancher"
+
+--debug
+debugPort = serverIndex.."05"..harbor
+
+sendMarquee = 3		--发送跑马灯等级(0~5),默认值为0，表示关闭
+svcCount = 1				--服务实例数量
+svcAllocThreshold = 24		--分配玩家到服务实例时，需要服务中的玩家数达到此值时，才会选择下一个服务用于分配，此值不要随意修改
+
+pump = 0.25		--抽水比率
+virtualPlayerCount = 1688		--虚拟玩家数
+
+enableBoss = 0 --是否开启Boss活动
+isTestBoss = 0	--是否为测试模式,测试模式全天开放
+initBossAp = 50000000	--Boss活动初始奖池
+

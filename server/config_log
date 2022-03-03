@@ -1,0 +1,25 @@
+---------------------------public-----------------------
+include("config_public")
+include("config_port")
+---------------------------------------------------------
+
+thread = 4
+harbor = log_harbor
+logger = "./log/log.log"
+address = "127.0.0.1:"..serverIndex.."00"..harbor
+master = "127.0.0.1:"..serverIndex.."000"
+start = "log_launcher"
+
+debugPort = serverIndex.."05"..harbor
+
+logpath = "./log/"
+
+--mongodb
+dumpInterval = 5 * 60      --日志入库间隔
+dumpMinCount = 1      --日志入库最新记录数
+dbhost = mongo_host
+dbport = mongo_port
+dbname = mongo_log_db_name
+username = mongo_log_username
+password = mongo_log_password
+

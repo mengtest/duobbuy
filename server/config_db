@@ -1,0 +1,25 @@
+---------------------------public-----------------------
+include("config_public")
+include("config_port")
+---------------------------------------------------------
+
+thread = 16
+harbor = db_harbor
+logger = "./log/db.log"
+address = "127.0.0.1:"..serverIndex.."00"..harbor
+master = "127.0.0.1:"..serverIndex.."000"
+start = "db"
+
+dbSvcCount = 16
+
+--debug
+debugPort = serverIndex.."05"..harbor
+
+--mongodb
+dumpInterval = 5 * 60      --日志入库间隔
+dumpMinCount = 1      --日志入库最新记录数
+dbhost = mongo_host
+dbport = mongo_port
+dbname = mongo_db_name
+username = mongo_username
+password = mongo_password

@@ -1,0 +1,56 @@
+serverIndex = 7     -- 服务器起始端口 例 7000 --- 对外监听端口 7901    (开服修改)
+
+frontend_harbor = 1     -- 不同节点的节点号
+log_harbor = 2
+db_harbor = 3
+agent_harbor = 4
+catch_fish_harbor = 5
+social_harbor = 6
+shutdown_harbor = 7
+
+
+-- http
+http_port = 8007 -- http端口  (开服修改)
+http_agent_num = 4
+
+--secretKey，游戏服务器-》后台（请求数据用）
+secretKey = "123456"
+whiteIps = "39.108.102.3" --http接口IP白名单，多个用逗号隔开
+
+--charge，后台-》游戏服务器（发货用）
+gameServerKey = "123456"
+
+chargeOpRecord = nil
+
+-- redis
+redis_host = "127.0.0.1"
+redis_port = 6379
+redis_index = 0
+redis_password = nil
+
+--mysql
+mysql_host = "127.0.0.1"
+mysql_port = 3306
+mysql_database = "fishcenter" 
+mysql_user = "root"
+mysql_password = "three2017"
+
+
+--mongodb
+--authmod = "mongodb_cr"
+authmod = "scram_sha1"
+
+mongo_host = "127.0.0.1"
+mongo_port = 27017
+mongo_db_name = "fish7"
+mongo_username = "admin"
+mongo_password = "admin"
+
+mongo_log_db_name = "log7"
+mongo_log_username = "admin"
+mongo_log_password = "admin"
+
+
+
+
+

@@ -1,0 +1,28 @@
+root = "./"
+bootstrap = "snlua bootstrap"
+lua_path = root .. "/lualib/?.lua;" .. root .. "/logic/?.lua;".. root .. "/service/?.lua"
+luaservice = root.."service/?.lua;"
+lualoader = "lualib/loader.lua"
+cpath = root.."cservice/?.so"
+pbpath = root.."pb/"
+
+serverId = 1  --影响自增ID的值,自增ID的高10位为serverId
+
+language = "language_cn"
+
+centerServerHost = "39.108.102.3:8083"
+centerServerUrl = "/api.php"
+centerServerKey = "123456"
+
+wordFilterPath = root .. "logic/config/word_filter.txt"
+
+logminlevel = 10
+isTestMode = nil  		--是否为压测模式
+isRecordRoot = nil  	--是否为录制模式
+unionTestMode = nil     --工会对战测试
+isUseMonitor = nil      --是否启用性能检测模块
+useSdk = nil            --是否使用sdk
+openDate = "2015-11-20 00:00:00" --开服时间
+
+-- 使用下列参数为修改系统时间
+--TimeTest = "2015-11-26-10-30-00"

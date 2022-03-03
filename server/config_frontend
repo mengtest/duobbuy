@@ -1,0 +1,40 @@
+---------------------------public-----------------------
+include("config_public")
+include("config_port")
+---------------------------------------------------------
+
+thread = 8
+harbor = frontend_harbor
+logger = "./log/frontend.log"
+address = "127.0.0.1:"..serverIndex.."00"..harbor
+master = "127.0.0.1:"..serverIndex.."000"
+standalone = "0.0.0.0:"..serverIndex.."000"
+start = "frontend"
+
+--debug
+debugPort = serverIndex.."05"..harbor
+
+--watchdog
+port = serverIndex.."901"
+maxClient = 5000
+maxLogining = 10
+heartbeatInterval = 300
+recordPath = "./record/"
+flushInterval = 5
+
+-- 开启登陆白名单，默认禁止其他玩家登陆
+openLoginLimit = 0
+loginWhiteIps = "192.168.1.141"
+
+--auth
+logicCount = 4
+enabledIPLimit = 1	--1代表开启同一IP登录数限制
+checkLoginTimeLen = 7200 --两小时
+forbidTimeLen = 7200 --封禁时长
+enabledLoginCount = 20	--允许登录最大数
+
+--http
+httpPort = http_port
+maxHttpClient = 1024
+contentLength = 400
+

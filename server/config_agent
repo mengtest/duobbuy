@@ -1,0 +1,24 @@
+---------------------------public-----------------------
+include("config_public")
+include("config_port")
+---------------------------------------------------------
+
+thread = 8
+harbor = agent_harbor
+logger = "./log/agent.log"
+address = "127.0.0.1:"..serverIndex.."00"..harbor
+master = "127.0.0.1:"..serverIndex.."000"
+start = "agent_luancher"
+
+--debug
+debugPort = serverIndex.."05"..harbor
+
+--agent
+agentInitCount = 10
+
+--cache
+cacheTime = 10800
+scanInterval = 3600
+
+-- isOpenGMCommand  是否开启GM指令
+isOpenGMCommand = 1
